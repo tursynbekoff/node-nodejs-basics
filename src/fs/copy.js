@@ -1,9 +1,6 @@
 import fs from 'fs';
-import path from 'path';
 
 const copy = async () => {
-
-
 
     if (fs.existsSync('src/fs/files_copy')) {
         throw 'FS operation failed';
