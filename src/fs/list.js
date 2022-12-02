@@ -3,9 +3,11 @@ import fs from 'fs';
 const list = async () => {
     // Write your code here
 
-    if (!fs.existsSync('src/fs/files')) {
-        throw 'FS operation failed'
-    } 
+    fs.exists('src/fs/files/', (exist) => {
+        if (!exist) {
+            throw 'FS operation failed';
+        } 
+    })
 
     fs.readdir('src/fs/files', (err, files) => {
         if (err) {

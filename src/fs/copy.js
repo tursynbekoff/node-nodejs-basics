@@ -2,9 +2,12 @@ import fs from 'fs';
 
 const copy = async () => {
 
-    if (fs.existsSync('src/fs/files_copy')) {
-        throw 'FS operation failed';
-    } 
+    fs.exists('src/fs/files_copy', (exist) => {
+        if (exist) {
+            throw 'FS operation failed';
+        } 
+    })
+    
 
     fs.mkdir('src/fs/files_copy', (err) => {
         if (err) {
